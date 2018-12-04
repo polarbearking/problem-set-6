@@ -11,8 +11,11 @@
  */
 
 function sayHello() {
-
-}
+    let ctx = document.getElementById('canvas1').getContext('2d');
+    ctx.font = "48px sans-serif";
+    ctx.clearRect(0, 0, canvas1.width, canvas1.height);
+    ctx.strokeText('Hello, World!', 10, 50);
+  }
 
 /*
  * Rectangle. 3 points.
@@ -38,7 +41,8 @@ function sayHello() {
  */
 
 function drawRectangle() {
-
+  let height = Number(prompt("Enter the width of the rectangle."))
+  let width = Number(prompt("Enter the height of the rectangle."))
 }
 
 /*
