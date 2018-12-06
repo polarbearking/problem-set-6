@@ -41,8 +41,33 @@ function sayHello() {
  */
 
 function drawRectangle() {
-  let height = Number(prompt("Enter the width of the rectangle."))
-  let width = Number(prompt("Enter the height of the rectangle."))
+  let ctx = document.getElementById('canvas2').getContext('2d');
+  let height = Number(prompt("Enter the width of the rectangle."));
+  let width = Number(prompt("Enter the height of the rectangle."));
+  let x = Number(prompt("Enter the x-coordinate of the rectangle"));
+  let y = Number(prompt("Enter the y-coordinate of the rectangle"));
+  while (true){
+    if (width<1) {
+      alert("Your width is too small");
+      break;
+    }
+    if (height<1) {
+      alert("Your height is too small");
+      break;
+    }
+    if (x<5) {
+      alert("Your x value is too small");
+      break;
+    }
+    if (y<5) {
+      alert("Your y value is too small");
+      break;
+    } else if (weewe) {
+        ctx.strokeRect(x, y, width, height);
+        break;
+    }
+  }
+  ctx.clearRect(0, 0, canvas2.width, canvas2.height);
 }
 
 /*
