@@ -42,32 +42,35 @@ function sayHello() {
 
 function drawRectangle() {
   let ctx = document.getElementById('canvas2').getContext('2d');
-  let height = Number(prompt("Enter the width of the rectangle."));
-  let width = Number(prompt("Enter the height of the rectangle."));
+  let width = Number(prompt("Enter the width of the rectangle."));
+  let height = Number(prompt("Enter the height of the rectangle."));
   let x = Number(prompt("Enter the x-coordinate of the rectangle"));
   let y = Number(prompt("Enter the y-coordinate of the rectangle"));
-  while (true){
-    if (width<1) {
+    ctx.clearRect(0, 0, canvas2.width, canvas2.height);
+    if(isNaN(width) || isNaN(height) || isNaN(x) || isNaN(y)) {
+        ctx.clearRect(0, 0, canvas2.width, canvas2.height);
+        alert("One of your inputs is not a number");
+      }
+    if (width<=1) {
       alert("Your width is too small");
-      break;
+      width = null
     }
-    if (height<1) {
+    if (height<=1) {
       alert("Your height is too small");
-      break;
+      height = null
     }
     if (x<5) {
       alert("Your x value is too small");
-      break;
+      x = null
     }
     if (y<5) {
       alert("Your y value is too small");
-      break;
-    } else if (weewe) {
-        ctx.strokeRect(x, y, width, height);
-        break;
+      y = null
     }
-  }
-  ctx.clearRect(0, 0, canvas2.width, canvas2.height);
+    if (width==null || height==null || x==null || y==null) {
+      ctx.clearRect(0, 0, canvas2.width, canvas2.height);
+    }
+      ctx.strokeRect(x, y, width, height);
 }
 
 /*
