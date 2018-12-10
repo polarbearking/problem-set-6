@@ -70,6 +70,7 @@ function drawRectangle() {
     if (width==null || height==null || x==null || y==null) {
       ctx.clearRect(0, 0, canvas2.width, canvas2.height);
     }
+    // if x + width > canvas2.width
       ctx.strokeRect(x, y, width, height);
 }
 
