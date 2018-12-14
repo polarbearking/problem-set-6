@@ -102,7 +102,7 @@ function drawRectangle() {
 function drawColoredRectangle() {
   let ctx = document.getElementById('canvas3').getContext('2d');
   let color = prompt("Enter a valid color");
-  let colors = color
+  let iColor = color
   ctx.clearRect(0, 0, canvas2.width, canvas2.height);
   switch(color) {
     case color='black':
@@ -120,7 +120,7 @@ function drawColoredRectangle() {
     case color='yellow':
       break;
     default:
-      alert(colors + " is not a supported color");
+      alert(iColor + " is not a supported color");
       ctx.clearRect(0, 0, canvas3.width, canvas3.height);
       color = 'white'
 }
@@ -158,7 +158,11 @@ function drawColoredRectangle() {
  */
 
 function drawTriangle() {
-
+  let ctx = document.getElementById('canvas4').getContext('2d');
+  let side1 = prompt("Enter side 1.");
+  let side2 = prompt("Enter side 2.");
+  let side3 = prompt("Enter side 3.");
+  
 }
 
 /*
