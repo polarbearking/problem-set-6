@@ -70,7 +70,7 @@ function drawRectangle() {
     if (width==null || height==null || x==null || y==null) {
       ctx.clearRect(0, 0, canvas2.width, canvas2.height);
     }
-    // if x + width > canvas2.width
+    //if (x + width > canvas2.width)
       ctx.strokeRect(x, y, width, height);
 }
 
@@ -100,7 +100,32 @@ function drawRectangle() {
  */
 
 function drawColoredRectangle() {
-
+  let ctx = document.getElementById('canvas3').getContext('2d');
+  let color = prompt("Enter a valid color");
+  let colors = color
+  ctx.clearRect(0, 0, canvas2.width, canvas2.height);
+  switch(color) {
+    case color='black':
+      break;
+    case color='blue':
+      break;
+    case color='green':
+      break;
+    case color='orange':
+      break;
+    case color='purple':
+      break;
+    case color='red':
+      break;
+    case color='yellow':
+      break;
+    default:
+      alert(colors + " is not a supported color");
+      ctx.clearRect(0, 0, canvas3.width, canvas3.height);
+      color = 'white'
+}
+  ctx.fillStyle = color;
+  ctx.fillRect(10, 10, 100, 50);
 }
 
 /*
