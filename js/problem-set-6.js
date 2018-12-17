@@ -67,10 +67,14 @@ function drawRectangle() {
       alert("Your y value is too small");
       y = null
     }
+    if (x + width > canvas2.width || y + height > canvas2.height) {
+      width = null
+      ctx.clearRect(0, 0, canvas2.width, canvas2.height)
+      alert("The drawing is too large to fit on the canvas.")
+    }
     if (width==null || height==null || x==null || y==null) {
       ctx.clearRect(0, 0, canvas2.width, canvas2.height);
     }
-    //if (x + width > canvas2.width)
       ctx.strokeRect(x, y, width, height);
 }
 
@@ -159,10 +163,28 @@ function drawColoredRectangle() {
 
 function drawTriangle() {
   let ctx = document.getElementById('canvas4').getContext('2d');
-  let side1 = prompt("Enter side 1.");
-  let side2 = prompt("Enter side 2.");
-  let side3 = prompt("Enter side 3.");
-  
+  let side1 = Number(prompt("Enter side 1."));
+  let side2 = Number(prompt("Enter side 2."));
+  let side3 = Number(prompt("Enter side 3."));
+  if ((side1**2) + (side2**2) != (side3**2)){
+    side1 = null
+    side2 = null
+    side3 = null
+    alert("Not a valid right triangle.")
+    ctx.clearRect(0, 0, canvas4.width, canvas4.height)
+  }
+  if (x + width > canvas4.width || y + height > canvas4.height) {
+    width = null
+    ctx.clearRect(0, 0, canvas4.width, canvas4.height)
+    alert("The drawing is too large to fit on the canvas.")
+  }
+  ctx.clearRect(0, 0, canvas4.width, canvas4.height)
+  ctx.beginPath();
+  ctx.moveTo(10, 10);
+  ctx.lineTo(10, 10+side1);
+  ctx.lineTo(10+side2, 10+side1)
+  ctx.lineTo(10, 10);
+  ctx.stroke();
 }
 
 /*
