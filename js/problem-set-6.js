@@ -207,7 +207,30 @@ function drawTriangle() {
  */
 
 function drawSmileyFace() {
+  let ctx = document.getElementById('canvas5').getContext('2d');
+  let r = Number(prompt("Enter a radius."));
 
+  ctx.clearRect(0, 0, canvas5.width, canvas5.height);
+  ctx.beginPath();
+  ctx.arc(r+10, r+10, r, 0, Math.PI*2);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc((r+10)+r/2, (r+10)-r/2, r*.1, 0, Math.PI*2);
+  ctx.stroke();
+  ctx.beginPath()
+  ctx.arc((r+10)-r/2, (r+10)-r/2, r*.1, 0, Math.PI*2);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc((r+15)-r/4, (r+15)-r/4, r*.7, 0, Math.PI);
+  ctx.stroke();
+  if (r<1) {
+    ctx.clearRect(0, 0, canvas5.width, canvas5.height)
+    alert("The radius was too small.")
+  }
+  if (r>canvas5.width) {
+    ctx.clearRect(0, 0, canvas5.width, canvas5.height)
+    alert("The smiley face will not fit on the canvas.")
+  }
 }
 
 /*
