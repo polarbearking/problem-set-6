@@ -252,7 +252,37 @@ function drawSmileyFace() {
  */
 
 function drawStar() {
-
+  let ctx =document.getElementById('canvas6').getContext('2d');
+  ctx.clearRect(0, 0, canvas6.width, canvas6.height);
+    let outerR=Number(prompt("Enter an outer radius"));
+    let innerR=Number(prompt("Enter an inner radius"));
+    if (outerR<=innerR){
+      ctx.clearRect(0, 0, canvas6.width, canvas6.height);
+      alert("Outer radius must be larger than inner radius.")
+    }
+    if (innerR<1 || outerR<1) {
+      ctx.clearRect(0, 0, canvas6.width, canvas6.height);
+      alert("One of your dimensions are to small.")
+    }
+      let outerx=[];
+      let outery=[];
+      let innerx=[];
+      let innery=[];
+      for(let i=0;i<5;i++){
+        outerx.push(Math.cos((Math.PI*2*i)/5-(Math.PI/2))*outerR+125);
+        outery.push(Math.sin((Math.PI*2*i)/5-(Math.PI/2))*outerR+125);
+        innerx.push(Math.cos(((Math.PI*2*i)/5)-(Math.PI/2)+(Math.PI/5))*innerR+125);
+        innery.push(Math.sin(((Math.PI*2*i)/5)-(Math.PI/2)+(Math.PI/5))*innerR+125);
+      }
+      ctx.beginPath();
+      ctx.moveTo(outerx[0], outery[0]);
+      for(let j=0;j<outerx.length;j++){
+        ctx.lineTo(innerx[j], innery[j]);
+        ctx.lineTo(outerx[j+1], outery[j+1]);
+      }
+      ctx.lineTo(outerx[0], outery[0]);
+      ctx.stroke();
+      ctx.closePath();
 }
 
 /*
@@ -271,7 +301,34 @@ function drawStar() {
  */
 
 function drawStopSign() {
+  let ctx = document.getElementById('canvas7').getContext('2d');
+  ctx.clearRect(0, 0, canvas7.width, canvas7.height);
+  let sidelength=80;
+  let center=[10+(80)/2+80/Math.sqrt(2), 10+(80/2)+(80/Math.sqrt(2))];
+  let pointx=[];
+  let pointy=[];
 
+  for(let i=0;i<8;i++){
+    pointx.push(Math.cos(((Math.PI*2*i)/8)-Math.PI/8)*100+center[0]);
+    pointy.push(Math.sin(((Math.PI*2*i)/8)-Math.PI/8)*100+center[1]);
+  }
+  ctx.beginPath();
+  ctx.moveTo([pointx][0], pointy[0]);
+  for(let j=0;j<pointx.length;j++){
+    ctx.lineTo(pointx[j], pointy[j]);
+  }
+  ctx.lineTo(pointx[0], pointy[0]);
+  ctx.stroke();
+
+  ctx.fillStyle="red";
+  ctx.fill();
+  ctx.closePath();
+  ctx.beginPath();
+  ctx.textAlign="center";
+  ctx.font="60px Arial";
+  ctx.fillStyle="white";
+  ctx.fillText("STOP", center[0], center[1]+15);
+  ctx.closePath()
 }
 
 /*
