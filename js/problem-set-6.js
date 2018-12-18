@@ -67,7 +67,7 @@ function drawRectangle() {
       alert("Your y value is too small");
       y = null
     }
-    if (canvas.width-x-width=<0 || canvas.height-y-height<=0) {
+    if (0>=canvas.width-x-width || 0>=canvas.height-y-height) {
       width = null
       ctx.clearRect(0, 0, canvas2.width, canvas2.height)
       alert("The drawing is too large to fit on the canvas.")
@@ -407,7 +407,7 @@ function drawHouse() {
   let base= prompt("Enter a color for the house.");
   let door= prompt("Enter a color for the door.");
   while(true){
-    if (base="red" || base="blue" || base="brown" || base="green" || base="orange" || base= "purple" || base="yellow" || door="red" || door="blue" || door="brown" || door="green" || door="orange" || door= "purple" || door="yellow"){
+    if (base=="red" || base=="blue" || base=="brown" || base=="green" || base=="orange" || base== "purple" || base=="yellow" || door=="red" || door=="blue" || door=="brown" || door=="green" || door=="orange" || door=="purple" || door=="yellow"){
       break;
     } else {
       alert("One of your colors are invalid.")
