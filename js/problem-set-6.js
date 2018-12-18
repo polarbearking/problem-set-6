@@ -67,7 +67,7 @@ function drawRectangle() {
       alert("Your y value is too small");
       y = null
     }
-    if (x + width > canvas2.width || y + height > canvas2.height) {
+    if (canvas.width-x-width=<0 || canvas.height-y-height<=0) {
       width = null
       ctx.clearRect(0, 0, canvas2.width, canvas2.height)
       alert("The drawing is too large to fit on the canvas.")
@@ -173,11 +173,11 @@ function drawTriangle() {
     alert("Not a valid right triangle.")
     ctx.clearRect(0, 0, canvas4.width, canvas4.height)
   }
-  if (x + width > canvas4.width || y + height > canvas4.height) {
+/*  if (x + width > canvas4.width || y + height > canvas4.height) {
     width = null
     ctx.clearRect(0, 0, canvas4.width, canvas4.height)
     alert("The drawing is too large to fit on the canvas.")
-  }
+  }*/
   ctx.clearRect(0, 0, canvas4.width, canvas4.height)
   ctx.beginPath();
   ctx.moveTo(10, 10);
@@ -350,7 +350,27 @@ function drawStopSign() {
  */
 
 function drawPyramid() {
-
+  let ctx =document.getElementById('canvas8').getContext('2d');
+  ctx.clearRect(0, 0, canvas8.width, canvas8.height);
+  let sideLength=Number(prompt("Enter a side length"));
+  let x=10;
+  let y=canvas8.height-10;
+  let i=0;
+  let lineNumber=1;
+  while(i<5){
+    for(let j=0+lineNumber;j<=5;j++){
+      ctx.strokeRect(x,y-sideLength,sideLength,sideLength);
+      x+=sideLength;
+    }
+    x=10+(sideLength/2)*lineNumber;
+    y-=sideLength;
+    lineNumber++;
+    i++;
+  }
+  if (sideLength>100){
+    ctx.clearRect(0, 0, canvas8.width, canvas8.height);
+    alert("The pyramid will not fit on the canvas.")
+  }
 }
 
 /*
@@ -383,5 +403,36 @@ function drawPyramid() {
  */
 
 function drawHouse() {
+  let ctx = document.getElementById('canvas9').getContext('2d');
+  let base= prompt("Enter a color for the house.");
+  let door= prompt("Enter a color for the door.");
+  while(true){
+    if (base="red" || base="blue" || base="brown" || base="green" || base="orange" || base= "purple" || base="yellow" || door="red" || door="blue" || door="brown" || door="green" || door="orange" || door= "purple" || door="yellow"){
+      break;
+    } else {
+      alert("One of your colors are invalid.")
+    }
+  }
+  ctx.fillStyle=base;
+  ctx.fillRect(150 , canvas9.height-400-10, 650, 400);
 
+  ctx.fillStyle=door;
+  ctx.fillRect(150+(650/2)-30, canvas9.height-400-10+300, 60, 100);
+  ctx.strokeRect(150+(650/2)-30, canvas9.height-400-10+300, 60, 100);
+  ctx.stroke();
+
+
+  ctx.fillStyle="gray";
+  ctx.moveTo(150, canvas9.height-400-10);
+  ctx.lineTo(430, 155);
+  ctx.lineTo(800, canvas9.height-400-10);
+  ctx.lineTo(150, canvas9.height-400-10);
+  ctx.fill();
+
+  ctx.fillStyle="LightBlue";
+  ctx.fillRect(300, canvas9.height-400-10+100, 75, 75);
+  ctx.fillRect(575, canvas9.height-400-10+100, 75, 75);
+  ctx.fillRect(300, canvas9.height-400-10+200, 75, 75);
+  ctx.fillRect(575, canvas9.height-400-10+200, 75, 75);
+  ctx.closePath();
 }
